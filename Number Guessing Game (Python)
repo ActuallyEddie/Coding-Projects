@@ -1,0 +1,42 @@
+import sys
+import random
+print("************************************************************")
+print("Description: Write a program that plays the guessing game with the user.")
+print("Date: 2/21/2024")
+print("Author(s): Eddie Hernandez")
+print("***********************************************************")
+
+#use the random integer input to allow the program to have a random number
+answer =random.randint(0,1000)
+#Make a guess variable and allow done to equal true for the loop
+guesses = 0
+done = True
+# Make an input to let the user choose to play on expert difficulty
+difficulty = input("Do you want to play on Expert difficulty (You only have 3 guesses)? Type Yes or No ")
+if difficulty == "Yes":
+    while (done != False):
+        user_guess = int(input("Guess the number between (0-1000): "))
+        guesses = guesses + 1
+        if user_guess == answer:
+            print("Correct, it took %d attempt(s) to get the right number" % guesses)
+            done = False
+        # make elif and else statements that allow the user to know to guess higher or lower
+        elif user_guess < answer:
+            print("Guess Higher")
+        else:
+            print("Guess lower")
+        if guesses == 3:
+            print("Sorry you lose, Play again")
+            sys.exit()
+#For the loop use done!=false to allow the loop to continue until user gets the correct answer
+if difficulty == "No":
+    while (done != False):
+        user_guess = int(input("Guess the number between (0-1000): "))
+        guesses = guesses + 1
+        if user_guess == answer:
+            print("Correct, it took %d attempt(s) to get the right number" %guesses)
+            done = False
+        elif user_guess < answer:
+            print("Guess higher")
+        else:
+            print("Guess Lower")
